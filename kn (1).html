@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cổng Thông Tin Khởi Nghiệp Trẻ Việt Nam</title>
+    <style>
+        /* ==========================================================================
+         * BỐ CỤC CHUNG & NỀN TOÀN TRANG WEB
+         * ========================================================================== */
+
+        /* 
+         * [CÚ PHÁP 1]: Thuộc tính background-color (Định kiểu màu nền)
+         * - Cú pháp chuẩn: background-color: [tên_màu | mã_hex | rgb() | hsl()];
+         * - Công dụng: Tạo màu nền chủ đạo cho toàn bộ trang web.
+         * - Nhận biết: Dùng tên màu có sẵn "lightblue" tạo cảm giác chuyên nghiệp, tin cậy.
+         */
+        body {
+            background-color: lightblue;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #2c3e50;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* ==========================================================================
+         * BANNER ĐẦU TRANG (HERO SECTION)
+         * ========================================================================== */
+
+        /* 
+         * [CÚ PHÁP 2 & 3]: Thuộc tính background-image và background-repeat
+         * - Cú pháp background-image: url("đường_dẫn_tệp_ảnh"); 
+         *   -> Công dụng: Lấy tệp hình ảnh làm nền hiển thị phía sau phần tử.
+         * - Cú pháp background-repeat: repeat-x; 
+         *   -> Công dụng: Điều khiển lặp lại ảnh nền theo phương ngang.
+         * - Nhận biết tại dòng bên dưới: Lặp dải băng trang trí ngang đầu trang banner.
+         */
+        header {
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><circle cx="20" cy="20" r="2" fill="%23ffffff" opacity="0.3"/></svg>');
+            background-repeat: repeat-x;
+            
+            /* Dùng mã HEX #1e3d59 làm màu nền kết hợp cho Banner */
+            background-color: #1e3d59; 
+            padding: 60px 20px;
+            text-align: center;
+            border-radius: 0 0 16px 16px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+            margin-bottom: 30px;
+        }
+
+        /* 
+         * [CÚ PHÁP 4]: Thuộc tính color (Màu chữ) & background-color cho Tiêu đề
+         * - Cú pháp color: red; -> Dùng tên màu có sẵn trong CSS2/CSS3.
+         * - Cú pháp background-color: #ffff00; -> Dùng Mã HEX (Vàng).
+         * - Công dụng: Nổi bật khẩu hiệu cuộc thi khởi nghiệp với sắc đỏ nhiệt huyết.
+         */
+        header h1 {
+            color: red; /* Tên màu có sẵn trong CSS */
+            background-color: #ffff00; /* Mã HEX màu vàng nổi bật */
+            display: inline-block;
+            padding: 10px 25px;
+            border-radius: 8px;
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* 
+         * [CÚ PHÁP 5]: Tên màu có sẵn trong CSS (white)
+         * - Nhận biết: color: white; quy định màu chữ trắng cho mô tả banner.
+         */
+        header p {
+            color: white; /* Tên màu có sẵn */
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* ==========================================================================
+         * KHỐI DỰ ÁN TIÊU BIỂU (HỆ MÀU RGB TRONG CSS)
+         * ========================================================================== */
+
+        .section-title {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            color: #1e3d59;
+        }
+
+        .grid-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background-color: white; /* Tên màu có sẵn */
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* 
+         * [CÚ PHÁP 6]: Hệ màu RGB chuẩn - rgb(r, g, b)
+         * - Cú pháp: rgb(0, 128, 0)
+         * - Công dụng: Tạo màu xanh lá cây đại diện cho dự án Khởi nghiệp Nông nghiệp xanh.
+         * - Nhận biết: Dùng tham số số nguyên từ 0 đến 255 (R=0, G=128, B=0).
+         */
+        .project-green {
+            color: rgb(0, 128, 0); 
+            font-size: 1.3rem;
+            margin-top: 0;
+        }
+
+        /* 
+         * [CÚ PHÁP 7]: Tên màu có sẵn trong CSS (blue, orange, purple, lime)
+         * - Nhận biết: Định kiểu trực tiếp bằng tên các màu phổ biến trong CSS.
+         */
+        .tag-tech { color: blue; font-weight: bold; }
+        .tag-energy { color: orange; font-weight: bold; }
+        .tag-edu { color: purple; font-weight: bold; }
+        .tag-eco { color: lime; font-weight: bold; background-color: #2c3e50; padding: 2px 6px; border-radius: 4px; }
+
+        /* ==========================================================================
+         * HỆ MÀU HSL (HUE, SATURATION, LIGHTNESS)
+         * ========================================================================== */
+
+        /* 
+         * [CÚ PHÁP 8]: Hệ màu HSL - hsl(hue, saturation%, lightness%)
+         * - Cú pháp: hsl(210, 100%, 90%) và hsl(210, 100%, 25%)
+         * - Công dụng: Tùy chỉnh màu sắc dựa trên Vòng tròn màu (Hue), Độ bão hòa (S) và Độ sáng (L).
+         * - Nhận biết tại dòng bên dưới: Tạo tông màu xanh dương đậm/nhạt đồng bộ cho Khóa ươm mầm.
+         */
+        .hsl-program-box {
+            background-color: hsl(210, 100%, 90%); /* HSL: Nền xanh nhạt */
+            color: hsl(210, 100%, 25%);            /* HSL: Chữ xanh đậm */
+            border-left: 6px solid hsl(210, 100%, 45%);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        .hsl-program-box h3 {
+            margin-top: 0;
+            color: hsl(210, 100%, 20%);
+        }
+
+        /* ==========================================================================
+         * KHỐI QUỸ ĐẦU TƯ (THUỘC TÍNH OPACITY)
+         * ========================================================================== */
+
+        /* 
+         * [CÚ PHÁP 9]: Thuộc tính opacity (Độ trong suốt)
+         * - Cú pháp chuẩn: opacity: [giá_trị_số_thập_phân]; (Từ 0 đến 1)
+         * - Công dụng: Điều chỉnh độ trong suốt của phần tử nền và nội dung bên trong.
+         * - Nhận biết tại dòng bên dưới: opacity: 0.85 giúp khối Quỹ hỗ trợ nổi bật tinh tế.
+         */
+        .fund-section {
+            background-color: green; /* Tên màu có sẵn */
+            opacity: 0.85;            /* Độ trong suốt 85% */
+            color: white;             /* Màu chữ trắng */
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .fund-section h2 {
+            margin-top: 0;
+            color: #ffffff;
+        }
+
+        .btn-apply {
+            background-color: #ffff00; /* Mã HEX màu vàng */
+            color: red;                /* Tên màu đỏ */
+            padding: 12px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 25px;
+            display: inline-block;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-apply:hover {
+            background-color: white;
+            color: black;
+        }
+
+        /* ==========================================================================
+         * BẢNG LỊCH TRÌNH VÀ CHÂN TRANG
+         * ========================================================================== */
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        /* [CÚ PHÁP 10]: Tên màu "gray" và "orange" có sẵn trong CSS */
+        th, td {
+            border: 1px solid gray; /* Tên màu gray */
+            padding: 12px 15px;
+            text-align: left;
+        }
+
+        th {
+            background-color: orange; /* Tên màu orange cho tiêu đề bảng */
+            color: black;              /* Tên màu black */
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: gray;               /* Tên màu gray */
+            font-size: 0.9rem;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ================= BANNER KHỞI NGHIỆP TRẺ ================= -->
+    <header>
+        <!-- Tiêu đề dùng màu chữ 'red' và nền '#ffff00' -->
+        <h1>HÀNH TRÌNH KHỞI NGHIỆP TRẺ 2026</h1>
+        <!-- Đoạn văn dùng màu chữ 'white' và nền banner lặp ngang repeat-x -->
+        <p>Kết nối tri thức – Đột phá công nghệ – Kiến tạo tương lai doanh nhân trẻ Việt Nam</p>
+    </header>
+
+    <div class="container">
+
+        <!-- ================= DỰ ÁN KHỞI NGHIỆP TIÊU BIỂU ================= -->
+        <h2 class="section-title">Dự Án Khởi Nghiệp Đổi Mới Sáng Tạo</h2>
+        
+        <div class="grid-layout">
+            <!-- Thẻ 1: Áp dụng hệ màu RGB rgb(0, 128, 0) -->
+            <div class="card">
+                <h3 class="project-green">1. EcoAgri - Nông Nghiệp Xanh</h3>
+                <p>Ứng dụng công nghệ sinh học xử lý rác thải hữu cơ thành phân bón vi sinh chất lượng cao.</p>
+                <p>Lĩnh vực: <span class="tag-eco">Nông Nghiệp Xanh</span></p>
+            </div>
+
+            <!-- Thẻ 2: Áp dụng tên màu 'blue' -->
+            <div class="card">
+                <h3 style="color: blue;">2. AI Mentor - Giáo Dục Trẻ</h3>
+                <p>Nền tảng trí tuệ nhân tạo tư vấn hướng nghiệp và lộ trình kỹ năng cho học sinh, sinh viên.</p>
+                <p>Lĩnh vực: <span class="tag-edu">Công Nghệ Giáo Dục</span></p>
+            </div>
+
+            <!-- Thẻ 3: Áp dụng tên màu 'orange' -->
+            <div class="card">
+                <h3 style="color: orange;">3. CleanEnergy - Năng Lượng Mới</h3>
+                <p>Giải pháp thu hồi năng lượng sóng biển quy mô nhỏ phục vụ cho các vùng đảo ven bờ.</p>
+                <p>Lĩnh vực: <span class="tag-energy">Năng Lượng Tái Tạo</span></p>
+            </div>
+        </div>
+
+        <!-- ================= CHƯƠNG TRÌNH ƯƠM MẦM (ÁP DỤNG MÀU HSL) ================= -->
+        <div class="hsl-program-box">
+            <h3>Chương Trình Ươm Mầm Doanh Nhân Trẻ (HSL Color System)</h3>
+            <p>Tham gia khóa huấn luyện 12 tuần được định hướng bởi các chuyên gia hàng đầu. Bạn sẽ được trang bị kiến thức từ lập kế hoạch kinh doanh, quản trị tài chính đến gọi vốn cộng đồng.</p>
+            <p><strong>Thời gian đăng ký:</strong> Từ 01/10/2026 đến hết 30/11/2026.</p>
+        </div>
+
+        <!-- ================= QUỸ HỖ TRỢ TÀI CHÍNH (ÁP DỤNG OPACITY) ================= -->
+        <div class="fund-section">
+            <h2>Quỹ Hỗ Trợ Tài Chính Thanh Niên Lập Nghiệp</h2>
+            <p>Cam kết đầu tư mầm vốn lên đến 500.000.000 VNĐ cho các ý tưởng xuất sắc đạt giải Vàng tại Cuộc thi Khởi nghiệp Trẻ Toàn quốc.</p>
+            <a href="#dang-ky" class="btn-apply">NỘP DỰ ÁN NGAY</a>
+        </div>
+
+        <!-- ================= BẢNG LỊCH TRÌNH (ÁP DỤNG TÊN MÀU VÀ BẢNG) ================= -->
+        <h2 class="section-title">Lịch Trình Sự Kiện Khởi Nghiệp</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Giai Đoạn</th>
+                    <th>Tên Sự Kiện</th>
+                    <th>Thời Gian</th>
+                    <th>Địa Điểm / Hình Thức</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Giai đoạn 1</td>
+                    <td>Phát động Cuộc thi Ý tưởng Khởi nghiệp Trẻ</td>
+                    <td>15/10/2026</td>
+                    <td>Trực tuyến (Online)</td>
+                </tr>
+                <tr>
+                    <td>Giai đoạn 2</td>
+                    <td>Vòng Sơ loại & Hỗ trợ Chỉnh sửa Pitch Deck</td>
+                    <td>05/11/2026</td>
+                    <td>TP. Hồ Chí Minh & Hà Nội</td>
+                </tr>
+                <tr>
+                    <td>Giai đoạn 3</td>
+                    <td>Chung kết Toàn quốc & Triển lãm Startup</td>
+                    <td>20/12/2026</td>
+                    <td>Trung tâm Hội nghị Quốc gia</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- ================= CHÂN TRANG ================= -->
+        <footer>
+            <p>&copy; 2026 Cổng Thông Tin Khởi Nghiệp Trẻ Việt Nam. Đồng hành cùng tri thức Việt.</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
