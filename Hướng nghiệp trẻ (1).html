@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hướng nghiệp trẻ</title>
+<style>
+/* ==========================================================
+   TRANG WEB HƯỚNG NGHIỆP TRẺ  -  PHẦN CSS TẠO MÀU CHO CHỮ VÀ NỀN
+   Mỗi mục bên dưới được đánh số và ghi chú rõ để dễ chỉ ra khi thuyết trình.
+   ========================================================== */
+
+:root { color-scheme: light; box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+*, *::before, *::after { box-sizing: inherit; }
+body { margin: 0; font-family: "Segoe UI", Roboto, Arial, sans-serif; font-size: 18px; line-height: 1.6; }
+.khung { max-width: 980px; margin: 0 auto; padding: 0 20px; }
+img { max-width: 100%; }
+
+/* ==========================================================
+   PHẦN I - CÁC HỆ MÀU DÙNG TRONG TRANG
+   ========================================================== */
+
+/* ---------- 1. HỆ MÀU RGB ---------- */
+
+/* 1a. Hàm rgb() với số nguyên 0 -> 255: màu chữ xám đậm (r = g = b) */
+body { color: rgb(40, 40, 40); }
+
+/* 1b. Hàm rgb() với phần trăm 0% -> 100%: màu nền đỏ nhạt */
+.the-e { background-color: rgb(100%, 80%, 80%); }
+
+/* 1c. Mã Hex #rrggbb: màu nền xanh dương nhạt */
+.the-i { background-color: #bbdefb; }
+
+/* 1d. Màu xám bằng rgb(x, x, x) - ba tham số bằng nhau */
+.chu-xam { color: rgb(90, 90, 90); }
+
+/* ---------- 2. HỆ MÀU HSL ---------- */
+
+/* 2a. hsl(hue, saturation%, lightness%): xanh dương đậm (hue = 215) */
+h2 { color: hsl(215, 70%, 25%); }
+
+/* 2b. Hue: 0 = đỏ, 120 = xanh lá, 240 = xanh dương */
+.the-a { background-color: hsl(291, 64%, 88%); }
+.moc-do   { color: hsl(0, 80%, 40%); }
+.moc-la   { color: hsl(120, 80%, 25%); }
+.moc-duong { color: hsl(240, 80%, 45%); }
+
+/* 2c. Màu xám bằng hsl(h, 0%, x%) - saturation = 0% */
+.the-c { background-color: hsl(0, 0%, 90%); }
+footer { background-color: hsl(0, 0%, 15%); }
+
+/* ---------- 3. TÊN MÀU CÓ SẴN TRONG CSS ---------- */
+.the-s { background-color: lightgreen; color: black; }
+.tieu-de-do { color: darkred; }
+.chu-trang { color: white; }
+.chu-xanh-la { color: green; }
+
+/* ==========================================================
+   PHẦN II - CÁC THUỘC TÍNH ĐỊNH KIỂU CHỮ VÀ NỀN
+   ========================================================== */
+
+/* ---------- 4. color : MÀU CHỮ ---------- */
+h1 { color: white; font-size: 2.4rem; margin: 0 0 8px; }            /* tên màu */
+.the-r h3 { color: rgb(191, 54, 12); }                              /* rgb() */
+.the-i h3 { color: #0d47a1; }                                       /* mã hex */
+.the-a h3 { color: hsl(291, 64%, 30%); }                            /* hsl() */
+.the-s h3 { color: green; }                                         /* tên màu */
+.the-e h3 { color: darkred; }                                       /* tên màu */
+.the-c h3 { color: hsl(0, 0%, 25%); }                               /* hsl() xám */
+.nhan { color: black; }                                             /* tên màu */
+
+/* ---------- 5. background-color : MÀU NỀN ---------- */
+body { background-color: #f4f8fb; }                                 /* nền toàn trang: hex */
+.the-r { background-color: rgb(255, 236, 179); }                    /* nền thẻ: rgb() */
+.nhan { background-color: #ffff00; }                                /* nền nhãn vàng: hex */
+.nen-xanh-nhat { background-color: lightblue; }                     /* nền khu vực: tên màu */
+.banner { background-color: hsl(215, 70%, 25%); }                   /* nền banner: hsl() */
+
+/* ---------- 6. background-image : ẢNH NỀN ---------- */
+/* Ảnh nền của banner (dải băng vàng - xanh ngọc, nhúng sẵn trong url) */
+.banner {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='8'%3E%3Crect width='20' height='8' fill='%23ffc107'/%3E%3Crect x='20' width='20' height='8' fill='%2326a69a'/%3E%3C/svg%3E");
+}
+/* Ảnh nền của khung lộ trình (dải dọc bên trái) */
+.lo-trinh {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='40'%3E%3Crect width='8' height='20' fill='%23ffc107'/%3E%3Crect y='20' width='8' height='20' fill='%2326a69a'/%3E%3C/svg%3E");
+}
+/* Ảnh nền của khung lời khuyên (một ngôi sao) */
+.loi-khuyen {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56'%3E%3Ccircle cx='28' cy='28' r='24' fill='%23ffc107'/%3E%3Ctext x='28' y='38' font-size='30' text-anchor='middle'%3E%E2%98%85%3C/text%3E%3C/svg%3E");
+}
+
+/* ---------- 7. opacity : ĐỘ TRONG SUỐT ---------- */
+/* Lớp nền xanh lá trong suốt 30% nằm phía sau, để chữ bên trên nổi bật */
+.nen-mo {
+  background-color: green;
+  opacity: 0.3;
+  position: absolute; top: 0; right: 0; bottom: 0; left: 0;
+}
+
+/* ---------- 8. background-repeat : LẶP LẠI ẢNH NỀN ---------- */
+.banner   { background-repeat: repeat-x; }    /* lặp theo chiều ngang */
+.lo-trinh { background-repeat: repeat-y; }    /* lặp theo chiều dọc */
+.loi-khuyen { background-repeat: no-repeat; } /* không lặp, chỉ một ảnh */
+
+/* ==========================================================
+   BỐ CỤC (không liên quan đến màu)
+   ========================================================== */
+.banner { padding: 40px 0 36px; }
+.banner p { color: #ffe082; margin: 0; font-size: 1.15rem; }
+section { padding: 36px 0; }
+h2 { margin: 0 0 14px; font-size: 1.7rem; }
+.luoi { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+.the { padding: 18px 20px; border-radius: 8px; }
+.the h3 { margin: 0 0 6px; font-size: 1.15rem; }
+.the p { margin: 0; font-size: 1rem; }
+.nhan { display: inline-block; padding: 2px 10px; border-radius: 4px; font-weight: bold; font-size: 0.9rem; margin-bottom: 8px; }
+.nen-xanh-nhat { padding: 36px 0; }
+.khoi-noi-bat { position: relative; padding: 22px 26px; border-radius: 8px; }
+.khoi-noi-bat .noi-dung { position: relative; }
+.khoi-noi-bat p { margin: 0; font-size: 1.15rem; font-weight: bold; }
+.lo-trinh { padding: 8px 0 8px 28px; }
+.lo-trinh h3 { margin: 14px 0 2px; font-size: 1.1rem; }
+.lo-trinh p { margin: 0; }
+.loi-khuyen { padding: 8px 0 8px 76px; min-height: 64px; }
+.loi-khuyen ul { margin: 0; padding-left: 20px; }
+footer { padding: 24px 0; text-align: center; font-size: 0.95rem; }
+footer p { margin: 0; }
+</style>
+</head>
+<body>
+
+<header class="banner">
+  <div class="khung">
+    <h1>Hướng nghiệp trẻ</h1>
+    <p>Hiểu mình hôm nay, chọn nghề vững vàng cho ngày mai.</p>
+  </div>
+</header>
+
+<section>
+  <div class="khung">
+    <h2>Hướng nghiệp là gì?</h2>
+    <p>Hướng nghiệp là quá trình giúp mỗi bạn trẻ hiểu rõ bản thân, tìm hiểu thế giới nghề nghiệp và đưa ra lựa chọn phù hợp về ngành học, nghề nghiệp. Một lựa chọn đúng giúp bạn học có động lực hơn, làm việc hiệu quả hơn và gắn bó lâu dài với công việc mình yêu thích.</p>
+    <p class="chu-xam">Không có nghề tốt nhất cho tất cả mọi người, chỉ có nghề phù hợp nhất với từng người.</p>
+  </div>
+</section>
+
+<section class="nen-xanh-nhat">
+  <div class="khung">
+    <h2>Bốn bước chọn nghề</h2>
+    <div class="luoi">
+      <div class="the" style="background-color:#fff;">
+        <span class="nhan">Bước 1</span>
+        <h3>Hiểu bản thân</h3>
+        <p>Xác định sở thích, điểm mạnh, tính cách và giá trị sống của mình.</p>
+      </div>
+      <div class="the" style="background-color:#fff;">
+        <span class="nhan">Bước 2</span>
+        <h3>Tìm hiểu nghề nghiệp</h3>
+        <p>Tìm hiểu công việc thực tế, yêu cầu năng lực, mức thu nhập và cơ hội phát triển.</p>
+      </div>
+      <div class="the" style="background-color:#fff;">
+        <span class="nhan">Bước 3</span>
+        <h3>Chọn ngành và trường</h3>
+        <p>So sánh chương trình đào tạo, điều kiện xét tuyển, học phí và môi trường học.</p>
+      </div>
+      <div class="the" style="background-color:#fff;">
+        <span class="nhan">Bước 4</span>
+        <h3>Lập kế hoạch hành động</h3>
+        <p>Đặt mục tiêu ngắn hạn, dài hạn và bắt đầu rèn luyện từng kỹ năng cần thiết.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="khung">
+    <h2>Sáu nhóm tính cách nghề nghiệp</h2>
+    <p>Theo mô hình Holland (RIASEC), mỗi người thường nghiêng về một vài nhóm sau. Bạn thuộc nhóm nào?</p>
+    <div class="luoi">
+      <div class="the the-r">
+        <h3>R - Thực tế</h3>
+        <p>Thích làm việc với máy móc, dụng cụ, ngoài trời. Hợp với kỹ thuật, cơ khí, xây dựng, nông nghiệp.</p>
+      </div>
+      <div class="the the-i">
+        <h3>I - Nghiên cứu</h3>
+        <p>Thích phân tích, tìm tòi, giải quyết vấn đề. Hợp với khoa học, công nghệ thông tin, y dược.</p>
+      </div>
+      <div class="the the-a">
+        <h3>A - Nghệ thuật</h3>
+        <p>Giàu sáng tạo, thích tự do thể hiện. Hợp với thiết kế, truyền thông, âm nhạc, kiến trúc.</p>
+      </div>
+      <div class="the the-s">
+        <h3>S - Xã hội</h3>
+        <p>Thích giúp đỡ, giảng dạy, chăm sóc người khác. Hợp với giáo dục, tâm lý, công tác xã hội.</p>
+      </div>
+      <div class="the the-e">
+        <h3>E - Quản lý</h3>
+        <p>Thích dẫn dắt, thuyết phục, kinh doanh. Hợp với quản trị, marketing, khởi nghiệp.</p>
+      </div>
+      <div class="the the-c">
+        <h3>C - Nghiệp vụ</h3>
+        <p>Cẩn thận, ngăn nắp, thích số liệu và quy trình. Hợp với kế toán, tài chính, hành chính.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="nen-xanh-nhat">
+  <div class="khung">
+    <h2>Kỹ năng cần có cho nghề nghiệp tương lai</h2>
+    <div class="khoi-noi-bat">
+      <div class="nen-mo"></div>
+      <div class="noi-dung">
+        <p>Nghề có thể thay đổi, nhưng khả năng học hỏi suốt đời thì luôn có giá trị.</p>
+      </div>
+    </div>
+    <div class="luoi" style="margin-top:16px;">
+      <div class="the" style="background-color:#fff;"><h3>Tư duy phản biện</h3><p>Biết đặt câu hỏi, đánh giá thông tin và ra quyết định có cơ sở.</p></div>
+      <div class="the" style="background-color:#fff;"><h3>Giao tiếp và làm việc nhóm</h3><p>Trình bày rõ ràng, lắng nghe và phối hợp hiệu quả với người khác.</p></div>
+      <div class="the" style="background-color:#fff;"><h3>Ngoại ngữ và tin học</h3><p>Sử dụng thành thạo công cụ số và ít nhất một ngoại ngữ.</p></div>
+      <div class="the" style="background-color:#fff;"><h3>Tự học và thích nghi</h3><p>Chủ động cập nhật kiến thức mới khi công việc thay đổi.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="khung">
+    <h2>Lộ trình hướng nghiệp theo từng giai đoạn</h2>
+    <div class="lo-trinh">
+      <h3>THCS - Khám phá</h3>
+      <p>Thử nhiều hoạt động, câu lạc bộ; nhận ra môn học và lĩnh vực mình hứng thú. Lựa chọn phân luồng sau lớp 9: học THPT hoặc học nghề.</p>
+      <h3>THPT - Định hướng</h3>
+      <p>Chọn tổ hợp môn phù hợp, tham gia ngày hội tư vấn tuyển sinh, trải nghiệm thực tế và tìm hiểu các ngành đào tạo.</p>
+      <h3>Đại học, cao đẳng, học nghề - Chuyên sâu</h3>
+      <p>Học chuyên môn, thực tập, làm dự án thật và xây dựng mạng lưới quan hệ nghề nghiệp.</p>
+      <h3>Đi làm - Phát triển</h3>
+      <p>Tích lũy kinh nghiệm, liên tục nâng cấp kỹ năng và sẵn sàng chuyển hướng khi cần.</p>
+    </div>
+  </div>
+</section>
+
+<section class="nen-xanh-nhat">
+  <div class="khung">
+    <h2>Lời khuyên cho bạn trẻ</h2>
+    <div class="loi-khuyen">
+      <ul>
+        <li>Đừng chọn nghề chỉ vì thu nhập cao hoặc vì bạn bè chọn.</li>
+        <li>Trò chuyện với người đang làm nghề bạn quan tâm để biết công việc thật sự ra sao.</li>
+        <li>Thử sức qua thực tập, tình nguyện, dự án nhỏ trước khi quyết định.</li>
+        <li>Lắng nghe gia đình và thầy cô, nhưng người quyết định cuối cùng là chính bạn.</li>
+        <li>Chọn sai không phải là hết: bạn hoàn toàn có thể điều chỉnh hướng đi.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="khung">
+    <p class="chu-trang">Hướng nghiệp trẻ - Chọn nghề bằng sự hiểu biết và đam mê.</p>
+  </div>
+</footer>
+
+</body>
+</html>
